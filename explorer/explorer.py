@@ -20,6 +20,12 @@ Import intern module
 
 """
 
+Internal Constant, Class, Function
+
+"""
+
+"""
+
 Exported Constant, Class, Function
 
 """
@@ -91,11 +97,4 @@ def search_dir(
     # end for
   # end for
   return lstDir
-
-"""
-
-Internal Constant, Class, Function
-
-"""
-
 
