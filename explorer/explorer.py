@@ -58,7 +58,7 @@ def search_file(
           break
         # end if
       # end for
-      if extension:
+      if extension and lstFile:
         _, ext = os.path.splitext(f)
         if not ext in extension:
           lstFile.pop(-1)
