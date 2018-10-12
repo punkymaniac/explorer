@@ -20,6 +20,12 @@ Import intern module
 
 """
 
+Internal Constant, Class, Function
+
+"""
+
+"""
+
 Exported Constant, Class, Function
 
 """
@@ -52,7 +58,7 @@ def search_file(
           break
         # end if
       # end for
-      if extension:
+      if extension and lstFile:
         _, ext = os.path.splitext(f)
         if not ext in extension:
           lstFile.pop(-1)
@@ -91,11 +97,4 @@ def search_dir(
     # end for
   # end for
   return lstDir
-
-"""
-
-Internal Constant, Class, Function
-
-"""
-
 
