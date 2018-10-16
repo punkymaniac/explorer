@@ -46,6 +46,7 @@ def search_file(
   lenPath = len(path)
   for subpath, dirs, files in os.walk(path):
     for f in files:
+      pop = False
       if subpath[-1] == '/':
         subpath = subpath[:-1]
       # end if
@@ -54,15 +55,18 @@ def search_file(
       tmp = filename.split('/')
       for t in tmp[1:]:
         if hide == False and t[0] == '.':
-          lstFile.pop(-1)
+          pop = True
           break
         # end if
       # end for
-      if extension and lstFile:
+      if extension:
         _, ext = os.path.splitext(f)
-        if not ext in extension:
-          lstFile.pop(-1)
+        if ext != "" and not ext in extension:
+          pop = True
         # end if
+      # end if
+      if pop == True and lstFile:
+        lstFile.pop(-1)
       # end if
     # end for
   # end for
@@ -82,6 +86,7 @@ def search_dir(
   lenPath = len(path)
   for subpath, dirs, files in os.walk(path):
     for d in dirs:
+      pop = False
       if subpath[-1] == '/':
         subpath = subpath[:-1]
       # end if
@@ -90,10 +95,13 @@ def search_dir(
       tmp = dirname.split('/')
       for t in tmp[1:]:
         if hide == False and t[0] == '.':
-          lstDir.pop(-1)
+          pop = True
           break
         # end if
       # end for
+      if pop == True and lstDir:
+        lstDir.pop(-1)
+      # end if
     # end for
   # end for
   return lstDir
