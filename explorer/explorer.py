@@ -44,13 +44,15 @@ def search_file(
   """
   lstFile = []
   lenPath = len(path)
+  if path == '/':
+    path = path
+  elif path[-1] == '/':
+    path = path[:-1]
+  # end if
   for subpath, dirs, files in os.walk(path):
     for f in files:
       pop = False
-      if subpath[-1] == '/':
-        subpath = subpath[:-1]
-      # end if
-      filename = subpath + '/' + f
+      filename = subpath + ('/' if subpath[-1] != '/' else '') + f
       lstFile.append(filename)
       tmp = filename.split('/')
       for t in tmp[1:]:
@@ -84,13 +86,15 @@ def search_dir(
   """
   lstDir = []
   lenPath = len(path)
+  if path == '/':
+    path = path
+  elif path[-1] == '/':
+    path = path[:-1]
+  # end if
   for subpath, dirs, files in os.walk(path):
     for d in dirs:
       pop = False
-      if subpath[-1] == '/':
-        subpath = subpath[:-1]
-      # end if
-      dirname = subpath + '/' + d
+      dirname = subpath + ('/' if subpath[-1] != '/' else '') + d
       lstDir.append(dirname)
       tmp = dirname.split('/')
       for t in tmp[1:]:
