@@ -109,9 +109,12 @@ def tree(
   :param: hide: (optional) if true, include the hidden file and folder
   """
   lstFile = search_file(path, hide)
+  lstDir = search_dir(path, hide)
+  lstTree = lstFile + lstDir
+  lstTree.sort()
   tree = {}
-  for pathFile in lstFile:
-    lstPath = pathFile.split('/')
+  for pathElem in lstTree:
+    lstPath = pathElem.split('/')
     subTree = tree
     for p in lstPath:
       if not p in subTree.keys():
