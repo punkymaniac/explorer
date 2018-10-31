@@ -43,7 +43,6 @@ def search_file(
   :param: hide: (optional) if true, include the hidden file and folder
   """
   lstFile = []
-  lenPath = len(path)
   if path == '/':
     path = path
   elif path[-1] == '/':
@@ -85,7 +84,6 @@ def search_dir(
   :param: hide: (optional) if true, include the hidden directory
   """
   lstDir = []
-  lenPath = len(path)
   if path == '/':
     path = path
   elif path[-1] == '/':
