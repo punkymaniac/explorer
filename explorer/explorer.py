@@ -108,3 +108,30 @@ def search_dir(
   # end for
   return lstDir
 
+def tree(
+    path,
+    hide = False
+    ):
+  """
+  Create a tree from the given path
+
+  :param: path: path of the directory to create the tree
+  :param: hide: (optional) if true, include the hidden file and folder
+  """
+  lstFile = search_file(path, hide)
+  lstDir = search_dir(path, hide)
+  lstTree = lstFile + lstDir
+  lstTree.sort()
+  tree = {}
+  for pathElem in lstTree:
+    lstPath = pathElem.split('/')
+    subTree = tree
+    for p in lstPath:
+      if not p in subTree.keys():
+        subTree[p] = {}
+      # end if
+      subTree = subTree[p]
+    # end for
+  # end for
+  return tree
+
