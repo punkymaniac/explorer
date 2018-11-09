@@ -41,6 +41,8 @@ def search_file(
   :param: path: path of the directory where search file
   :param: extension: (optional) the extension of file wanted
   :param: hide: (optional) if true, include the hidden file and folder
+
+  :return: lstFile: a list of file found
   """
   lstFile = []
   if path == '/':
@@ -82,6 +84,8 @@ def search_dir(
 
   :param: path: path of the directory where search directory
   :param: hide: (optional) if true, include the hidden directory
+
+  :return: lstDir: a list of directory found
   """
   lstDir = []
   if path == '/':
@@ -117,6 +121,8 @@ def tree(
 
   :param: path: path of the directory to create the tree
   :param: hide: (optional) if true, include the hidden file and folder
+
+  :return: tree: a dictionnary contain the filesystem arborescence
   """
   lstFile = search_file(path, hide)
   lstDir = search_dir(path, hide)
