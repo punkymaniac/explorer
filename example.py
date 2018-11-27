@@ -15,5 +15,9 @@ print("\n")
 
 listDir = explorer.search_dir("./", hide=False)
 print(listDir)
+print("\n")
+
+tree = explorer.tree("./")
+print(tree)
 
 
